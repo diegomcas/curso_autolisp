@@ -1,7 +1,7 @@
 ;Ejemplos de SI, entonces. NO, entonces.
 (defun comparaciones()
   (princ "Antes de controlar los flujos de nuestro programa, tenemos que hacer comparaciones.\n")
-  (princ "La primera y mÃ¡s bÃ¡sica es la de igualdad (idÃ©ntica) entre cosas. (eq)\n")
+  (princ "La primera y más básica es la de igualdad (idéntica) entre cosas. (eq)\n")
   (setq f1 '(a b c)) 
   (setq f2 '(a b c)) 
   (setq f3 f2)
@@ -49,7 +49,7 @@
   (initget 1 "Si")
   (setq seguir (getkword "\nSeguimos? [Si]: "))
 
-  (princ "\nTambiÃ©n hay un NO igual (/= ).\n")
+  (princ "\nTambién hay un NO igual (/= ).\n")
   (princ (/= 10 20)) (princ "\n") ;T
   (princ (/= "you" "you")) (princ "\n") ;nil
   (princ (/= 5.43 5.44)) (princ "\n") ;T
@@ -61,7 +61,7 @@
   (princ (not nil)) (princ "\n") ;T
   (princ)
   
-  (princ "La que es muy Ãºtil cuando se comparan nÃºmeros reales es o listas es (equal ).\n")
+  (princ "La que es muy útil cuando se comparan números reales es o listas es (equal ).\n")
   (setq f1 '(a b c)) 
   (setq f2 '(a b c)) 
   (setq f3 f2)
@@ -77,12 +77,12 @@
 )
 
 ;----------------------------------------------------------------------------
-;FunciÃ³n es_primo
-;parÃ¡metros:
-; num: Un nÃºmero entero.
+;Función es_primo
+;parámetros:
+; num: Un número entero.
 ;
 ;Devuelve:
-; Una lista con los divisores del nÃºmero o una lista vacÃ­a si es primo.
+; Una lista con los divisores del número o una lista vacía si es primo.
 ;----------------------------------------------------------------------------
 (defun es_primo(num / tanteo lst_divs)
   (setq lst_divs '())
@@ -91,7 +91,7 @@
     ;(princ tanteo) (princ "\n")
     ;(princ (eq 0 (rem num tanteo))) (princ "\n")
     (if (eq 0 (rem num tanteo))
-      (setq lst_divs (append lst_divs (list tanteo))) ;El resto de la divisiÃ³n es 0 -> es divisor.
+      (setq lst_divs (append lst_divs (list tanteo))) ;El resto de la división es 0 -> es divisor.
     )
     ;(princ lst_divs) (princ "\n")
     (setq tanteo (1+ tanteo))
@@ -109,14 +109,14 @@
   (if (> (length lst_devuelta) 0)
     (princ 
       (strcat
-        "El nÃºmero "
+        "El número "
         (itoa num_eval)
         " tiene divisores y son:\n"
       )
     )
     (princ
       (strcat
-        "El nÃºmero "
+        "El número "
         (itoa num_eval)
         " es primo.\n"
       )
