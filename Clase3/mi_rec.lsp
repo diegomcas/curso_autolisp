@@ -1,26 +1,26 @@
 (defun c:mi_rect (/)
-	;Dibujamos nuevamente un rect·ngulo, pero ahora con valores establecidos por el usuario
+	;Dibujamos nuevamente un rect√°ngulo, pero ahora con valores establecidos por el usuario
 
-	;Pedimos al usuario el punto de inicio del rect·ngulo y lo asignamos en la variable "pt_inicio"
-	(setq pt_inicio (getpoint "Ingrese el punto de Inicio del rect·ngulo: "))
-	(princ "\n") ;Salto de lÌnea
+	;Pedimos al usuario el punto de inicio del rect√°ngulo y lo asignamos en la variable "pt_inicio"
+	(setq pt_inicio (getpoint "Ingrese el punto de Inicio del rect√°ngulo: "))
+	(princ "\n") ;Salto de l√≠nea
 
-	;Le solicitamos al usuario que ingrese el valor del ancho del rect·ngulo
+	;Le solicitamos al usuario que ingrese el valor del ancho del rect√°ngulo
 	;  y lo almacenamos en la variable "ancho"
-	(setq ancho (getreal "Ingrese el ancho del rect·ngulo: "))
-	(princ "\n") ;Salto de lÌnea
+	(setq ancho (getreal "Ingrese el ancho del rect√°ngulo: "))
+	(princ "\n") ;Salto de l√≠nea
 
-	;Le solicitamos al usuario que ingrese el valor del ancho del rect·ngulo
+	;Le solicitamos al usuario que ingrese el valor del ancho del rect√°ngulo
 	;  y lo almacenamos en la variable "ancho"
-	(setq alto (getreal "Ingrese el alto del rect·ngulo: "))
-	(princ "\n") ;Salto de lÌnea
+	(setq alto (getreal "Ingrese el alto del rect√°ngulo: "))
+	(princ "\n") ;Salto de l√≠nea
 
 	;Con los valores obtenidos nos ponemos manos a la obra
 
 	;Para dibujar elementos en autocad SIEMPRE (Bue, casi siempre) necesitamos coordenadas
 
 	;Calculamos las coordenadas del siguiente punto, al que llamaremos "pt_2"
-	;Para que sea m·s entendible, vamos a hacerlo paso a paso
+	;Para que sea m√°s entendible, vamos a hacerlo paso a paso
 
 	;Claculamos el x del pt_2
 	(setq x (+ (car pt_inicio) ancho))
@@ -38,37 +38,42 @@
 	(setq pt_3 (list x y))
 
 	;Vamos con el punto 4 (pt_4)
-	;Analisemos el caso:
+	;Analicemos el caso:
 	;	La coordenada x del punto 4 es igual que la coordenada x del punto 1
 	; y la coordena y del punto 4 es igual a la coordenada y del punto 3 (que queda igual)
 	;Entonces resolvamos eso
 	(setq x (car pt_inicio))
 
-	;y aramamos el punto
+	;y armamos el punto
 	(setq pt_4 (list x y))
 	
-	;PodrÌamos hacer todo de una asÌ -> (setq pt_4 (list (car pt_1) (cadr pt_3)))
-	;pero es m·s complicado de ver :-)
+	;Podr√≠amos hacer todo de una as√≠ -> (setq pt_4 (list (car pt_1) (cadr pt_3)))
+	;pero es m√°s complicado de ver :-)
 
-	;Con todos los datos empezamos a dibujar el rect·ngulo
+	;Con todos los datos empezamos a dibujar el rect√°ngulo
 
-	;Hacemos las lineas desde pt_inicio a pt_2 a pt_3 a pt_4 y cerramos
+	;Hacemos las l√≠neas desde pt_inicio a pt_2 a pt_3 a pt_4 y cerramos
 	(command "_line" pt_inicio pt_2 pt_3 pt_4 "c")
 
-	;Si llegamos hasta ac· es que NO "pasaron cosas"
-	;Por cortesÌa le contamos al usuario que hicimos
+	;Si llegamos hasta ac√° es que NO "pasaron cosas"
+	;Por cortes√≠a le contamos al usuario que hicimos
 
-	;Para eso vamos a convertir los valores que tenemos como n˙meros a strings
+	;Para eso vamos a convertir los valores que tenemos como n√∫meros a strings
 	(setq str_x_ini (rtos (car pt_inicio) 2 4))
 	(setq str_y_ini (rtos (cadr pt_inicio) 2 4))
 
 	(setq str_ancho (rtos ancho 2 4))
 	(setq str_alto (rtos alto 2 4))
+	
+	;Para resolver la tarea agregar su c√≥digo a partir de aqu√≠...
+
+
+	;Hasta aqu√≠.
 
 	;Entonces se lo informamos...
 	(princ
 		(strcat
-			"Dibujamos el rect·ngulo que inicia en x= "
+			"Dibujamos el rect√°ngulo que inicia en x= "
 			str_x_ini
 			"; en y= "
 			str_y_ini
@@ -83,7 +88,7 @@
 	(princ "\n")
 	
 	;y le avisamos al usuario que finalizamos el programa
-	(princ "El programa finalizÛ correctamente.")
+	(princ "El programa finaliz√≥ correctamente.")
 
 	;escribimos en la salida "nada" para que quede limpio el mensaje
 	(princ)
